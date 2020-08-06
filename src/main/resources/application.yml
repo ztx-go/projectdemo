@@ -1,0 +1,118 @@
+server:
+  port: 6680
+spring:
+  application:
+    name: com.economic.system.building
+  # freemarker
+  freemarker:
+    request-context-attribute: request
+    allow-request-override: false
+    template-loader-path: classpath:/static
+    cache: false
+    charset: UTF-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    suffix: .ftl
+  # jpa
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5Dialect
+#swagger
+swagger:
+  version: v0.0.9
+# 不允许被删除的角色
+roles:
+  deleteDenys: ADMIN
+author:
+  ignoreUrls: /,/home,/index,/error,/v1/api-docs,/login,/swagger/**,/system/**,/index.**,/excel/**,/v1/security/loginFail,/v1/security/loginSuccess,/v1/security/logoutSuccess,/v2/api-docs,/v1/competence/findByCurrentUser,/v1/logRecord/getALLEnums,/v1/logRecord/getEnums,/v1/synchronousData/**
+
+#hystrix调用方法的超时时间，默认是1000毫秒
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 200000
+#调用高德地图配置
+amap:
+  key: 8e08a80b71bf4ca887c22bf8b923cac1
+
+filePath:
+  #fileRoot: D:/file
+  imageRoot: D:/image/
+  maxFileSize: 5
+  #articleSavePath: D:/article/
+  prefixs: jpg,gif,jpeg,png
+  prefixLimit: jpg,jpeg,png,gif
+
+---
+########################## test
+spring:
+  profiles: test
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.0.24:3306/building_economic_dev?characterEncoding=UTF-8
+    username: dbuser
+    password: 10121416
+    driverClassName: com.mysql.jdbc.Driver
+  http:
+    multipart:
+       maxFileSize: 30MB
+       maxRequestSize: 30MB
+
+filePath:
+  #fileRoot: /data/appfile/buildEconomic/file
+  imageRoot: /data/appfile/buildEconomic/image/
+  maxFileSize: 5
+  #articleSavePath: /data/appfile/buildEconomic/article/
+  prefixs: jpg,gif,jpeg,png
+  prefixLimit: jpg,jpeg,png,gif
+
+eospUrl: 192.168.0.24:6650
+---
+########################## node1
+server:
+  port: 6680
+  tomcat:
+    basedir: /data_spring/tomcattmp2/buildEconomic
+spring:
+  profiles: node1
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://10.31.250.45:3306/building_economic?characterEncoding=UTF-8
+    username: root
+    password: econo*72micS
+    driverClassName: com.mysql.jdbc.Driver
+  http:
+    multipart:
+       maxFileSize: 30MB
+       maxRequestSize: 30MB
+
+#hystrix调用方法的超时时间，默认是1000毫秒
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 200000
+#调用高德地图配置
+amap:
+  key: 8e08a80b71bf4ca887c22bf8b923cac1
+filePath:
+  #fileRoot: /opt/build-data/file
+  imageRoot: /opt/build-data/image/
+  maxFileSize: 5
+  #articleSavePath: /opt/build-data/article/
+  prefixs: jpg,gif,jpeg,png
+  prefixLimit: jpg,jpeg,png,gif
+#调用多维系统
+eospUrl: http://data.cdht.gov.cn
