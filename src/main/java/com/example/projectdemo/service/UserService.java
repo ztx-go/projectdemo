@@ -47,7 +47,7 @@ public interface UserService {
    * @return: void
    * @author: fanda
    */
-  public void update(UserEntity user, UserEntity modefyUser, EntityType enty);
+   void update(UserEntity user, UserEntity modefyUser, EntityType enty);
 
   /**
    * 通过id查询user

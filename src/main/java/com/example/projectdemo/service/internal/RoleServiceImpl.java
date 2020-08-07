@@ -24,8 +24,7 @@ import java.util.*;
 
 /**
  * 角色信息变化不大，且经常需要查询，所以需要将查询性质的操作放入到缓存中
- * 
- * @author yinwenjie
+ *
  */
 @Service("roleServiceImpl")
 public class RoleServiceImpl implements RoleService {
