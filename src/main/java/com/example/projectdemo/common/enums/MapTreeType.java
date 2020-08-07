@@ -8,9 +8,6 @@ package com.example.projectdemo.common.enums;
 
 /**
  * 码表类型
- * 
- * @author fwguang
- *
  */
 public enum MapTreeType implements EnumTypeInterface {
 

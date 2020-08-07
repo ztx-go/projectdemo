@@ -16,8 +16,7 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @author yinwenjie
- * @version V1.0
+ *
  */
 @ApiModel(value = "CompetenceEntity")
 @Entity

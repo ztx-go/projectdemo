@@ -2,11 +2,8 @@ package com.example.projectdemo.common.enums;
 
 /**
  * 
- * @ClassName: ActionType
- * @Description:操作日志实体对象类型
- * @author: YHY
- * @date: 2018年7月16日 下午5:36:25
- * 
+ * 操作日志实体对象类型
+ *
  *
  */
 public enum EntityType implements EnumTypeInterface {

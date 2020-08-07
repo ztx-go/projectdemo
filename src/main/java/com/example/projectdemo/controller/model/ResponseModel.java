@@ -2,9 +2,6 @@ package com.example.projectdemo.controller.model;
 
 /**
  * 统一返回数据对象（对本次请求执行的操作结果是否成功 进行描述 flag=1时执行成功）
- * 
- * @author yhy yinwenjie
- * 
  */
 public class ResponseModel {
   /** 时间 */

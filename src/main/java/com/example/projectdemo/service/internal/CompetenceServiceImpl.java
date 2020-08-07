@@ -23,8 +23,6 @@ import java.util.*;
  * 功能信息变化不大，且经常需要查询，所以需要将查询性质的操作放入到缓存中<br>
  * 功能在服务中的描述信息，主要为了和角色进行绑定产生权限控制
  * 
- * @author yinwenjie ly
- *
  */
 @Service("CompetenceServiceImpl")
 public class CompetenceServiceImpl implements CompetenceService {

@@ -17,7 +17,6 @@ import javax.transaction.Transactional;
 /**
  * 和权限绑定相关的接口实现在这里
  * 
- * @author yinwenjie
  */
 @Service("SecurityServiceImpl")
 public class SecurityServiceImpl implements SecurityService {

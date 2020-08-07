@@ -22,8 +22,6 @@ import java.util.Map;
 /**
  * 用户业务逻辑实现.
  * 
- * @author fanda
- *
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {

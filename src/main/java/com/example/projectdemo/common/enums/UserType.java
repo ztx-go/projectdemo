@@ -2,10 +2,6 @@ package com.example.projectdemo.common.enums;
 
 /**
  * 用户类型.
- * @ClassName:  UserType
- * @Description: 区别于不同的用户
- * @author: fanda
- * @date:   2019年4月23日 下午5:47:21
  */
 public enum UserType implements EnumTypeInterface {
   

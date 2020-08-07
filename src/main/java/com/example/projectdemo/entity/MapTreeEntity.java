@@ -24,9 +24,6 @@ import java.util.List;
 
 /**
  * 码表树对象
- * 
- * @author hc
- * @version 1.0,2013-4-15
  */
 @ApiModel(value = "MapTreeEntity")
 @TypeDefs({

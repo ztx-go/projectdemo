@@ -12,7 +12,6 @@ import java.util.Map;
 /**
  * 权限dao接口.
  * 
- * @author ly
  */
 public interface CompetenceDao {
 

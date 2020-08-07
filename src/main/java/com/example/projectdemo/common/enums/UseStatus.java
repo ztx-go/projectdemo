@@ -4,9 +4,7 @@
 package com.example.projectdemo.common.enums;
 
 /**
- * @author ly
- * @date 2017年8月8日 下午3:38:52
- * @version V1.0
+ * 状态
  */
 public enum UseStatus implements EnumTypeInterface {
   /** 正常. **/

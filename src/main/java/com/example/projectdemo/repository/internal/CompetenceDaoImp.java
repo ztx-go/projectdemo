@@ -23,7 +23,6 @@ import java.util.Map;
 /**
  * 权限dao实现.
  * 
- * @author ly
  */
 @Repository(value = "competenceDao")
 public class CompetenceDaoImp implements CompetenceDao {

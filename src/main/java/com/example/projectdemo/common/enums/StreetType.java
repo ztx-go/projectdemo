@@ -1,12 +1,7 @@
 package com.example.projectdemo.common.enums;
 
 /**
- * 
- * @ClassName:  StreetType   
- * @Description:所在街道、乡镇(枚举类型)
- * @author: ztx 
- * @date:   2019年3月19日 下午4:06:51   
- *
+ * StreetType
  */
 public enum StreetType implements EnumTypeInterface {
 

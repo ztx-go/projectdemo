@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * 码表树
  *
- *
  */
 @Repository("mapTreeRepostory")
 public interface MapTreeRepository

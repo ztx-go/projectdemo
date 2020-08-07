@@ -19,8 +19,6 @@ import java.util.Map;
 
 /**
  * 
- * @author hc
- *
  */
 @Repository("roleDao")
 public class RoleDaoImpl implements RoleDao {

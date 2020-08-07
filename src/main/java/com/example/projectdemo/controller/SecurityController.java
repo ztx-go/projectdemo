@@ -20,7 +20,6 @@ import java.util.Date;
 
 /**
  * 和权限安全相关的接口，在这里暴露<br>
- * @author yinwenjie
  */
 @RestController
 @RequestMapping("/v1/security")

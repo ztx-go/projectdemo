@@ -5,12 +5,11 @@ import java.util.Map;
 
 /**
  * 响应编码，记录了所有执行者向调用者返回的处理结果编码
- * @author yinwenjie
  */
 
 /**
  * 错误代码描述
- * <pre>
+ *
  * 200 请求成功
  * 301 请求次数已经超过本周期设置的最大值
  * 302 请求频率已超过设定的最大值。
@@ -29,9 +28,7 @@ import java.util.Map;
  * 502 插入操作错误
  * 503 更新操作错误
  * 504 XMPP服务连接暂时失效
- * </pre>
- * 
- * @author wenjie
+ *
  */
 public enum ResponseCode
 {

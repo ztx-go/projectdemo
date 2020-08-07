@@ -27,9 +27,6 @@ import java.util.*;
  * 用户管理控制层
  * 
  * @ClassName: UserController
- * @Description:TODO(这里用一句话描述这个类的作用)
- * @author: fanda
- * @date: 2019年3月27日 下午11:11:23
  */
 @Api(value = "UserController")
 @RestController

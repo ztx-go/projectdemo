@@ -9,8 +9,6 @@ import java.io.Serializable;
 
 /**
  * 各种实体层对象的定义中，只要包含持久层内部唯一编号的实例，都要集成该类.
- * 
- * @author yinwenjie
  */
 @MappedSuperclass
 public abstract class UuidEntity implements Serializable {

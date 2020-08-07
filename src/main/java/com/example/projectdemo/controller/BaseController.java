@@ -25,11 +25,7 @@ import java.util.Stack;
 
 /**
  * 基础controller
- * 
- * @author hc
  *
- * @version 1.0,2017年8月22日
- * 
  */
 public class BaseController {
 

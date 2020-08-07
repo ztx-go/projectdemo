@@ -11,9 +11,6 @@ import java.util.*;
 
 /**
  * 时间工具类
- * 
- * @author cxj
- *
  */
 public class DateUtils {
   private static final Log LOG = LogFactory.getLog(DateUtils.class);

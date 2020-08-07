@@ -12,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * 和访问权限有关的配置信息在这里
- * @author yinwenjie
  */
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
