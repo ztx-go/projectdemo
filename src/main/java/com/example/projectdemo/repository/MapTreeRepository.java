@@ -14,8 +14,6 @@ import java.util.List;
 /**
  * 码表树
  *
- * @author weibo
- * date:2019年3月18日 下午4:32:02 
  *
  */
 @Repository("mapTreeRepostory")

@@ -23,7 +23,7 @@ import java.util.Set;
 @Entity
 @Table(name = "eb_competence")
 @TypeDefs({ @TypeDef(name = "useStatus", typeClass = EnumType.class, parameters = {
-		@Parameter(name = "class", value = "com.economic.system.building.common.enums.UseStatus") }) })
+		@Parameter(name = "class", value = "com.example.projectdemo.enums.UseStatus") }) })
 public class CompetenceEntity extends UuidEntity {
 
 	/**

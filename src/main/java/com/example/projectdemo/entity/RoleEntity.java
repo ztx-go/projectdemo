@@ -16,15 +16,13 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @author ly
- * @date 2017年8月8日 下午1:55:20
- * @version V1.0
+ * 角色
  */
 @ApiModel(value = "RoleEntity")
 @Entity
 @Table(name = "eb_role")
 @TypeDefs({@TypeDef(name = "useStatus", typeClass = EnumType.class, parameters = {
-    @Parameter(name = "class", value = "com.economic.system.building.common.enums.UseStatus")})})
+    @Parameter(name = "class", value = "com.example.projectdemo.common.enums.UseStatus")})})
 public class RoleEntity extends UuidEntity {
 
   /**

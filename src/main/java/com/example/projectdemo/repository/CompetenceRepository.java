@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @author yinwenjie
+ *
  */
 @Repository("competenceRepository")
 public interface CompetenceRepository

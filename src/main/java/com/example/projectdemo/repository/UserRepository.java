@@ -13,9 +13,6 @@ import java.util.Date;
 
 /**
  * 后台用户
- * 
- * @author Client
- *
  */
 @Repository("userRepository")
 public interface UserRepository

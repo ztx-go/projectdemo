@@ -18,7 +18,7 @@ import java.util.Set;
 
 /**
  * 这个自定义的用户信息查询服务（权限模块使用），用来查询指定的用户详情（包括角色信息）
- * @author hzh
+ *
  *
  */
 public class CustomUserSecurityDetailsService implements UserDetailsService {

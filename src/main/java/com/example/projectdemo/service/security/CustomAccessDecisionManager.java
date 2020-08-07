@@ -17,8 +17,7 @@ import java.util.Collection;
 
 /**
  * 权限决定的管理器
- * 
- * @author yinwenjie
+ *
  */
 @Service("customAccessDecisionManager")
 public class CustomAccessDecisionManager implements AccessDecisionManager {

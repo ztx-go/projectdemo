@@ -10,9 +10,7 @@ import java.util.List;
 
 /**
  * 权限service接口.
- * 
- * @author yinwenjie
- * @version V1.0
+ *
  */
 public interface CompetenceService {
 	/**

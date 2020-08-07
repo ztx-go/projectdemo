@@ -1,0 +1,274 @@
+2020-08-07 10:23:46 [main] INFO  c.e.p.ProjectdemoApplication  - Starting ProjectdemoApplication on DESKTOP-EPI5H65 with PID 11748 (D:\ztx\java\demo\projectdemo\target\classes started by ztx in D:\ztx\java\demo\projectdemo)
+2020-08-07 10:23:46 [main] INFO  c.e.p.ProjectdemoApplication  - The following profiles are active: dev
+2020-08-07 10:23:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-07 10:23:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Finished Spring Data repository scanning in 60ms. Found 6 JPA repository interfaces.
+2020-08-07 10:23:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer  - Tomcat initialized with port(s): 7750 (http)
+2020-08-07 10:23:47 [main] INFO  o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-7750"]
+2020-08-07 10:23:47 [main] INFO  o.a.catalina.core.StandardService  - Starting service [Tomcat]
+2020-08-07 10:23:47 [main] INFO  o.a.catalina.core.StandardEngine  - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-07 10:23:47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]  - Initializing Spring embedded WebApplicationContext
+2020-08-07 10:23:47 [main] INFO  o.s.web.context.ContextLoader  - Root WebApplicationContext: initialization completed in 990 ms
+2020-08-07 10:23:47 [main] INFO  o.h.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-08-07 10:23:47 [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {5.3.17.Final}
+2020-08-07 10:23:47 [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2020-08-07 10:23:47 [main] INFO  o.h.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-08-07 10:23:47 [main] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} inited
+2020-08-07 10:23:48 [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-08-07 10:23:48 [main] ERROR o.s.b.w.e.tomcat.TomcatStarter  - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'CustomFilterSecurityInterceptor': Unsatisfied dependency expressed through field 'securityMetadataSource'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CustomFilterInvocationSecurityMetadataSource': Unsatisfied dependency expressed through field 'competenceService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CompetenceServiceImpl': Unsatisfied dependency expressed through field 'competenceRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'competenceRepository': Cannot create inner bean '(inner bean)#487cd177' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#487cd177': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+2020-08-07 10:23:48 [main] INFO  o.a.catalina.core.StandardService  - Stopping service [Tomcat]
+2020-08-07 10:23:48 [main] WARN  o.a.c.loader.WebappClassLoaderBase  - The web application [ROOT] appears to have started a thread named [Druid-ConnectionPool-Create-332139408] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.6/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+ java.base@11.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+ app//com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2164)
+2020-08-07 10:23:48 [main] WARN  o.a.c.loader.WebappClassLoaderBase  - The web application [ROOT] appears to have started a thread named [Druid-ConnectionPool-Destroy-332139408] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.6/java.lang.Thread.sleep(Native Method)
+ app//com.alibaba.druid.pool.DruidDataSource$DestroyConnectionThread.run(DruidDataSource.java:2257)
+2020-08-07 10:23:48 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2020-08-07 10:23:48 [main] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} closed
+2020-08-07 10:23:48 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener  - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-08-07 10:23:48 [main] ERROR o.s.boot.SpringApplication  - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:391)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1204)
+	at com.example.projectdemo.ProjectdemoApplication.main(ProjectdemoApplication.java:10)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:124)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:416)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CustomFilterSecurityInterceptor': Unsatisfied dependency expressed through field 'securityMetadataSource'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CustomFilterInvocationSecurityMetadataSource': Unsatisfied dependency expressed through field 'competenceService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CompetenceServiceImpl': Unsatisfied dependency expressed through field 'competenceRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'competenceRepository': Cannot create inner bean '(inner bean)#487cd177' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#487cd177': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:598)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:376)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1402)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:319)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:174)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:169)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:154)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:86)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:253)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:227)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5128)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:841)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:105)
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CustomFilterInvocationSecurityMetadataSource': Unsatisfied dependency expressed through field 'competenceService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CompetenceServiceImpl': Unsatisfied dependency expressed through field 'competenceRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'competenceRepository': Cannot create inner bean '(inner bean)#487cd177' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#487cd177': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:598)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:376)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1402)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:319)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1273)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1193)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:595)
+	... 56 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'CompetenceServiceImpl': Unsatisfied dependency expressed through field 'competenceRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'competenceRepository': Cannot create inner bean '(inner bean)#487cd177' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#487cd177': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:598)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:376)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1402)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:319)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1273)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1193)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:595)
+	... 69 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'competenceRepository': Cannot create inner bean '(inner bean)#487cd177' of type [org.springframework.orm.jpa.SharedEntityManagerCreator] while setting bean property 'entityManager'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#487cd177': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:361)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:131)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1672)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1424)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:319)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1273)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1193)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:595)
+	... 82 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name '(inner bean)#487cd177': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:314)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:110)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:662)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:479)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1318)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1158)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:554)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:346)
+	... 95 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:514)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:319)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:303)
+	... 103 common frames omitted
+Caused by: org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.example.projectdemo.entity.RoleEntity.operators in com.example.projectdemo.entity.OperatorEntity.roles
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:785)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:736)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:54)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1696)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1664)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:287)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1215)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1246)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1828)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1765)
+	... 110 common frames omitted
+2020-08-07 10:25:38 [main] INFO  c.e.p.ProjectdemoApplication  - Starting ProjectdemoApplication on DESKTOP-EPI5H65 with PID 20972 (D:\ztx\java\demo\projectdemo\target\classes started by ztx in D:\ztx\java\demo\projectdemo)
+2020-08-07 10:25:39 [main] INFO  c.e.p.ProjectdemoApplication  - The following profiles are active: dev
+2020-08-07 10:25:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-07 10:25:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Finished Spring Data repository scanning in 60ms. Found 5 JPA repository interfaces.
+2020-08-07 10:25:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer  - Tomcat initialized with port(s): 7750 (http)
+2020-08-07 10:25:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-7750"]
+2020-08-07 10:25:39 [main] INFO  o.a.catalina.core.StandardService  - Starting service [Tomcat]
+2020-08-07 10:25:39 [main] INFO  o.a.catalina.core.StandardEngine  - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-07 10:25:39 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]  - Initializing Spring embedded WebApplicationContext
+2020-08-07 10:25:39 [main] INFO  o.s.web.context.ContextLoader  - Root WebApplicationContext: initialization completed in 936 ms
+2020-08-07 10:25:40 [main] INFO  o.h.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-08-07 10:25:40 [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {5.3.17.Final}
+2020-08-07 10:25:40 [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2020-08-07 10:25:40 [main] INFO  o.h.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-08-07 10:25:40 [main] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} inited
+2020-08-07 10:25:40 [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-08-07 10:25:41 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 10:25:41 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator  - HHH000397: Using ASTQueryTranslatorFactory
+2020-08-07 10:25:42 [main] WARN  c.e.p.s.s.CustomFilterSecurityInterceptor  - Could not validate configuration attributes as the SecurityMetadataSource did not return any attributes from getAllConfigAttributes()
+2020-08-07 10:25:42 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor  - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-07 10:25:42 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-07 10:25:42 [main] INFO  o.s.s.web.DefaultSecurityFilterChain  - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22e253c7, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c648e38, org.springframework.security.web.header.HeaderWriterFilter@106ac5f4, org.springframework.security.web.authentication.logout.LogoutFilter@74cf2d5f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4125bc3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@395c21ee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c3836b6, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4abb4041, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2480acc3, org.springframework.security.web.session.SessionManagementFilter@4552e288, org.springframework.security.web.access.ExceptionTranslationFilter@42fb2be9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@108fd5d5]
+2020-08-07 10:25:42 [main] INFO  o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-7750"]
+2020-08-07 10:25:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer  - Tomcat started on port(s): 7750 (http) with context path ''
+2020-08-07 10:25:42 [main] INFO  c.e.p.ProjectdemoApplication  - Started ProjectdemoApplication in 3.743 seconds (JVM running for 4.837)
+2020-08-07 11:18:07 [Thread-2] INFO  o.s.s.c.ThreadPoolTaskExecutor  - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-07 11:18:07 [Thread-2] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 11:18:07 [Thread-2] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} closed
+2020-08-07 15:52:41 [main] INFO  c.e.p.ProjectdemoApplication  - Starting ProjectdemoApplication on DESKTOP-EPI5H65 with PID 620 (D:\ztx\java\demo\projectdemo\target\classes started by ztx in D:\ztx\java\demo\projectdemo)
+2020-08-07 15:52:41 [main] INFO  c.e.p.ProjectdemoApplication  - The following profiles are active: dev
+2020-08-07 15:52:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-07 15:52:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Finished Spring Data repository scanning in 50ms. Found 5 JPA repository interfaces.
+2020-08-07 15:52:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer  - Tomcat initialized with port(s): 7750 (http)
+2020-08-07 15:52:42 [main] INFO  o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-7750"]
+2020-08-07 15:52:42 [main] INFO  o.a.catalina.core.StandardService  - Starting service [Tomcat]
+2020-08-07 15:52:42 [main] INFO  o.a.catalina.core.StandardEngine  - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-07 15:52:42 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]  - Initializing Spring embedded WebApplicationContext
+2020-08-07 15:52:42 [main] INFO  o.s.web.context.ContextLoader  - Root WebApplicationContext: initialization completed in 955 ms
+2020-08-07 15:52:42 [main] INFO  o.h.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-08-07 15:52:42 [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {5.3.17.Final}
+2020-08-07 15:52:42 [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2020-08-07 15:52:42 [main] INFO  o.h.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-08-07 15:52:42 [main] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} inited
+2020-08-07 15:52:43 [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-08-07 15:52:44 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 15:52:45 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator  - HHH000397: Using ASTQueryTranslatorFactory
+2020-08-07 15:52:45 [main] WARN  c.e.p.s.s.CustomFilterSecurityInterceptor  - Could not validate configuration attributes as the SecurityMetadataSource did not return any attributes from getAllConfigAttributes()
+2020-08-07 15:52:45 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor  - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-07 15:52:45 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-07 15:52:45 [main] INFO  o.s.s.web.DefaultSecurityFilterChain  - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c045627, org.springframework.security.web.context.SecurityContextPersistenceFilter@ab595e8, org.springframework.security.web.header.HeaderWriterFilter@7fb8d720, org.springframework.security.web.authentication.logout.LogoutFilter@525c0f74, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@54a7d1b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@623be2a0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3894d1b1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@c0b10ae, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d79a69b, org.springframework.security.web.session.SessionManagementFilter@6202f8bf, org.springframework.security.web.access.ExceptionTranslationFilter@67748053, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7a0eb939]
+2020-08-07 15:52:45 [main] INFO  o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-7750"]
+2020-08-07 15:52:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer  - Tomcat started on port(s): 7750 (http) with context path ''
+2020-08-07 15:52:45 [main] INFO  c.e.p.ProjectdemoApplication  - Started ProjectdemoApplication in 4.441 seconds (JVM running for 5.522)
+2020-08-07 15:53:34 [Thread-2] INFO  o.s.s.c.ThreadPoolTaskExecutor  - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-07 15:53:34 [Thread-2] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 15:53:34 [Thread-2] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} closed
+2020-08-07 15:53:38 [main] INFO  c.e.p.ProjectdemoApplication  - Starting ProjectdemoApplication on DESKTOP-EPI5H65 with PID 17996 (D:\ztx\java\demo\projectdemo\target\classes started by ztx in D:\ztx\java\demo\projectdemo)
+2020-08-07 15:53:38 [main] INFO  c.e.p.ProjectdemoApplication  - The following profiles are active: dev
+2020-08-07 15:53:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-08-07 15:53:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate  - Finished Spring Data repository scanning in 60ms. Found 5 JPA repository interfaces.
+2020-08-07 15:53:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer  - Tomcat initialized with port(s): 7750 (http)
+2020-08-07 15:53:39 [main] INFO  o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-7750"]
+2020-08-07 15:53:39 [main] INFO  o.a.catalina.core.StandardService  - Starting service [Tomcat]
+2020-08-07 15:53:39 [main] INFO  o.a.catalina.core.StandardEngine  - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-08-07 15:53:39 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]  - Initializing Spring embedded WebApplicationContext
+2020-08-07 15:53:39 [main] INFO  o.s.web.context.ContextLoader  - Root WebApplicationContext: initialization completed in 968 ms
+2020-08-07 15:53:39 [main] INFO  o.h.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-08-07 15:53:40 [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {5.3.17.Final}
+2020-08-07 15:53:40 [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2020-08-07 15:53:40 [main] INFO  o.h.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-08-07 15:53:40 [main] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} inited
+2020-08-07 15:53:40 [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-08-07 15:53:41 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 15:53:41 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator  - HHH000397: Using ASTQueryTranslatorFactory
+2020-08-07 15:53:41 [main] WARN  c.e.p.s.s.CustomFilterSecurityInterceptor  - Could not validate configuration attributes as the SecurityMetadataSource did not return any attributes from getAllConfigAttributes()
+2020-08-07 15:53:42 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor  - Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-07 15:53:42 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-08-07 15:53:42 [main] INFO  o.s.s.web.DefaultSecurityFilterChain  - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bed8b91, org.springframework.security.web.context.SecurityContextPersistenceFilter@247d44b4, org.springframework.security.web.header.HeaderWriterFilter@4193da4d, org.springframework.security.web.authentication.logout.LogoutFilter@53fb3e1b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7e4bbda4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48b744fd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4917992b, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1254a3cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@dffcf1, org.springframework.security.web.session.SessionManagementFilter@2ac0cb64, org.springframework.security.web.access.ExceptionTranslationFilter@3f7f9d3f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3074575a]
+2020-08-07 15:53:42 [main] INFO  o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-7750"]
+2020-08-07 15:53:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer  - Tomcat started on port(s): 7750 (http) with context path ''
+2020-08-07 15:53:42 [main] INFO  c.e.p.ProjectdemoApplication  - Started ProjectdemoApplication in 3.731 seconds (JVM running for 4.886)
+2020-08-07 15:53:53 [Thread-2] INFO  o.s.s.c.ThreadPoolTaskExecutor  - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-07 15:53:53 [Thread-2] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-08-07 15:53:53 [Thread-2] INFO  c.alibaba.druid.pool.DruidDataSource  - {dataSource-1} closed

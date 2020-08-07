@@ -17,11 +17,11 @@ import java.util.Set;
 @Table(name = "eb_user")
 @TypeDefs({
         @TypeDef(name = "useStatus", typeClass = EnumType.class, parameters = {
-                @Parameter(name = "class", value = "com.economic.system.building.common.enums.UseStatus")}),
+                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.UseStatus")}),
         @TypeDef(name = "userType", typeClass = EnumType.class, parameters = {
-                @Parameter(name = "class", value = "com.economic.system.building.common.enums.UserType")}),
+                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.UserType")}),
         @TypeDef(name = "streetType", typeClass = EnumType.class, parameters = {
-                @Parameter(name = "class", value = "com.economic.system.building.common.enums.StreetType")})})
+                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.StreetType")})})
 public class UserEntity extends UuidEntity {
 
   /**

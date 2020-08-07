@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @author yinwenjie
+ *
  */
 @Service("CustomFilterInvocationSecurityMetadataSource")
 public class CustomFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {

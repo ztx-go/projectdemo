@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author yinwenjie
+ *
  */
 @Repository("roleRepository")
 public interface RoleRepository extends JpaRepository<RoleEntity, String>, JpaSpecificationExecutor<RoleEntity> {

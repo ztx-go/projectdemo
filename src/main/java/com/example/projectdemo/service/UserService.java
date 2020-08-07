@@ -12,8 +12,7 @@ import java.util.Map;
 /**
  * 
  * ldap 用户
- * 
- * @author Client
+ *
  *
  */
 public interface UserService {

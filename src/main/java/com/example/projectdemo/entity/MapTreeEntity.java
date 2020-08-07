@@ -31,9 +31,9 @@ import java.util.List;
 @ApiModel(value = "MapTreeEntity")
 @TypeDefs({
     @TypeDef(name = "maptreeType", typeClass = EnumType.class, parameters = {
-        @Parameter(name = "class", value = "com.economic.system.building.common.enums.MapTreeType")}),
+        @Parameter(name = "class", value = "com.example.projectdemo.common.enums.MapTreeType")}),
     @TypeDef(name = "stateType", typeClass = EnumType.class, parameters = {
-        @Parameter(name = "class", value = "com.economic.system.building.common.enums.UseStatus")})})
+        @Parameter(name = "class", value = "com.example.projectdemo.common.enums.UseStatus")})})
 @Entity
 @Table(name = "map_tree")
 public class MapTreeEntity extends UuidEntity {

@@ -14,10 +14,12 @@ import java.io.Serializable;
  */
 @MappedSuperclass
 public abstract class UuidEntity implements Serializable {
+
   /**
-   * 
+   *  uuid
    */
-  private static final long serialVersionUID = 6357586662390821565L;
+  private static final long serialVersionUID = -3286837043474778409L;
+
   /**
    * 抽象实体层模型（MySQL主键）的编号信息.
    */

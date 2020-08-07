@@ -13,7 +13,7 @@ import javax.servlet.*;
 import java.io.IOException;
 
 /**
- * @author yinwenjie
+ *
  */
 @Service("CustomFilterSecurityInterceptor")
 public class CustomFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
