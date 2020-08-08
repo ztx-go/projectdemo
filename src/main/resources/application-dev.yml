@@ -50,12 +50,20 @@ spring:
   profiles: dev
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-#    url: jdbc:mysql://192.168.0.24:3306/building_economic_dev?characterEncoding=UTF-8 
-#    username: dbuser
-#    password: 10121416
     url: jdbc:mysql://127.0.0.1:3306/projectdemo?characterEncoding=UTF-8&serverTimezone = GMT
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
 
-eospUrl: 192.168.0.24:6650    
+#图片上传保存地址
+img:
+  win_location: e:/images/
+  linux_location: /data/test/demo
+
+filePath:
+  #fileRoot: D:/file
+  imageRoot: e:/images/
+  maxFileSize: 5
+  #articleSavePath: D:/article/
+  prefixs: jpg,gif,jpeg,png,docx,xlsx
+  prefixLimit: jpg,jpeg,png,gif,docx,xlsx
