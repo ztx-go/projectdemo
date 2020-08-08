@@ -46,7 +46,7 @@ public class OriginalSourceAreaServiceImpl implements OriginalSourceAreaService 
 
     @Override
     public OriginalSourceAreaEntity findById(String id) {
-        OriginalSourceAreaEntity entity = originalSourceAreaRepository.findById(id).orElse(null);
+        OriginalSourceAreaEntity entity = originalSourceAreaRepository.findById(id);
         return entity;
     }
 

@@ -46,7 +46,7 @@ public class OriginalTechServiceImpl implements OriginalTechService {
 
     @Override
     public OriginalTechEntity findById(String id) {
-        OriginalTechEntity entity = originalTechRepository.findById(id).orElse(null);
+        OriginalTechEntity entity = originalTechRepository.findById(id);
         return entity;
     }
 

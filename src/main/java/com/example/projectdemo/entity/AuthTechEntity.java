@@ -2,8 +2,8 @@ package com.example.projectdemo.entity;
 
 import com.example.projectdemo.common.enums.*;
 import io.swagger.annotations.ApiModel;
-import org.hibernate.annotations.Parameter;
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -60,6 +60,7 @@ public class AuthTechEntity extends UuidEntity {
     /**
      * 技术类型
      **/
+    // @Type(type = "techType")
     @Column(name = "tech_type")
     private TechType techType;
 

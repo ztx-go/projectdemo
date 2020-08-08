@@ -45,7 +45,7 @@ public class AuthTechServiceImpl implements AuthTechService {
 
     @Override
     public AuthTechEntity findById(String id) {
-        AuthTechEntity entity = authTechRepository.findById(id).orElse(null);
+        AuthTechEntity entity = authTechRepository.findById(id);
         return entity;
     }
 

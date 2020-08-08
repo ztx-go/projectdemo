@@ -10,4 +10,9 @@ public interface AuthTraditionalRepository
         extends
         JpaRepository<AuthTraditionalEntity, String>,
         JpaSpecificationExecutor<AuthTraditionalEntity> {
+
+    void deleteById(String id);
+
+    AuthTraditionalEntity findById(String id);
+
 }

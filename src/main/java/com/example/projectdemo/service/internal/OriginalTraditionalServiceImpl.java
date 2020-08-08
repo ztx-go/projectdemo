@@ -46,7 +46,7 @@ public class OriginalTraditionalServiceImpl implements OriginalTraditionalServic
 
     @Override
     public OriginalTraditionalEntity findById(String id) {
-        OriginalTraditionalEntity entity = originalTraditionalRepository.findById(id).orElse(null);
+        OriginalTraditionalEntity entity = originalTraditionalRepository.findById(id);
         return entity;
     }
 

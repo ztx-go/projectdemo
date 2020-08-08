@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface AuthTechRepository extends
         JpaRepository<AuthTechEntity, String>,
         JpaSpecificationExecutor<AuthTechEntity> {
+
+    void deleteById(String id);
+
+    AuthTechEntity findById(String id);
 }

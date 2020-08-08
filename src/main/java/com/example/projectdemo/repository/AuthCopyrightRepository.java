@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface AuthCopyrightRepository extends
         JpaRepository<AuthCopyrightEntity, String>,
         JpaSpecificationExecutor<AuthCopyrightEntity> {
+
+    void deleteById(String id);
+
+    AuthCopyrightEntity findById(String id);
 }

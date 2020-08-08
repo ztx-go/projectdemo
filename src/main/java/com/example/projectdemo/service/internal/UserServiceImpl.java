@@ -3,21 +3,26 @@ package com.example.projectdemo.service.internal;
 import com.example.projectdemo.common.enums.EntityType;
 import com.example.projectdemo.common.enums.UseStatus;
 import com.example.projectdemo.common.enums.UserType;
+import com.example.projectdemo.entity.RoleEntity;
 import com.example.projectdemo.entity.UserEntity;
 import com.example.projectdemo.repository.UserRepository;
 import com.example.projectdemo.repository.internal.UserDao;
 import com.example.projectdemo.service.MapTreeService;
+import com.example.projectdemo.service.RoleService;
+import com.example.projectdemo.service.SecurityService;
 import com.example.projectdemo.service.UserService;
 import org.apache.commons.lang3.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 用户业务逻辑实现.
@@ -38,7 +43,13 @@ public class UserServiceImpl implements UserService {
   private UserDao userDao;
 
   @Autowired
-  private BCryptPasswordEncoder passwordEncoder;
+  Md5PasswordEncoder passwordEncoder;
+
+  @Autowired
+  RoleService roleService;
+
+  @Autowired
+  SecurityService securityService;
 
   @Override
   public void create(UserEntity user, UserEntity opter, EntityType enty) {
@@ -48,36 +59,9 @@ public class UserServiceImpl implements UserService {
     // 验证密码格式是否输入正确
     // Validate.isTrue(StringValidateUtils.validStrByPattern(pwd, "[a-zA-Z\\d]{6,12}"),
     // "密码长度必须为6-12个字符，大小写英文字符或数字！");
-    user.setPassword(passwordEncoder.encode(pwd));
+    user.setPassword(passwordEncoder.encodePassword(pwd,null));
     if (user.getUserType() == null) {
       throw new IllegalAccessError("用户类型不能为空");
-    }
-    /**
-     * 1.用户类型为部门人员，所属部门不为空.<br>
-     * 2.用户类型为街道人员，所属街道不为空.<br>
-     * 3.用户类型为楼宇人员，楼宇名称不为空.
-     */
-    if (user.getUserType() == UserType.DEPART_STAFF) {
-      if (user.getDepart() == null) {
-        throw new IllegalAccessError("所属部门不能为空！");
-      }
-      // 所属部门机构
-      Validate.notBlank(user.getDepart().getId(), "所属部门不能为空！");
-      user.setDepart(mapTreeService.findById(user.getDepart().getId()));
-      user.setStreetType(null);
-      user.setBuildName(null);
-    }
-    if (user.getUserType() == UserType.STREET_STAFF) {
-      if (user.getStreetType() == null) {
-        throw new IllegalAccessError("所属街道不能为空！");
-      }
-      user.setDepart(null);
-      user.setBuildName(null);
-    }
-    if (user.getUserType() == UserType.BUILD_STAFF) {
-      Validate.notBlank(user.getBuildName(), "楼宇名称不能为空！");
-      user.setDepart(null);
-      user.setStreetType(null);
     }
     user.setIsResetPsd(false);
     userRepository.save(user);
@@ -161,7 +145,7 @@ public class UserServiceImpl implements UserService {
       // Validate.isTrue(
       // StringValidateUtils.validStrByPattern(user.getPassword(), "/^[a-zA-Z]{1,30}$/"),
       // "密码长度必须为6-12个字符，大小写英文字符或数字！");
-      oldUser.setPassword(passwordEncoder.encode(user.getPassword()));
+      oldUser.setPassword(passwordEncoder.encodePassword(user.getPassword(),null));
     } else {
       oldUser.setPassword(oldPassword);
     }
@@ -194,13 +178,13 @@ public class UserServiceImpl implements UserService {
     Validate.notNull(user, "无法获取该管理员");
     // 获取加密后用户输入的原密码
     // String oldpwd = passwordEncoder.encodePassword(oldPassword, null);
-    String oldpwd = passwordEncoder.encode(oldPassword);
+    String oldpwd = passwordEncoder.encodePassword(oldPassword,null);
     // 验证原密码是否输入正确
     Validate.isTrue(user.getPassword().equals(oldpwd), "原密码输入错误，请重新输入");
     // Validate.isTrue(StringValidateUtils.validStrByPattern(newPassword, "[a-zA-Z\\d]{6,12}"),
     //     "新密码长度必须为6-12个字符，大小写英文字符或数字！");
     // user.setPassword(passwordEncoder.encodePassword(newPassword, null));
-    user.setPassword(passwordEncoder.encode(newPassword));
+    user.setPassword(passwordEncoder.encodePassword(newPassword,null));
     user.setModifyUser(modifyUser);
     user.setModifyDate(new Date());
     userRepository.saveAndFlush(user);
@@ -209,7 +193,8 @@ public class UserServiceImpl implements UserService {
   @Override
   public UserEntity findByAccount(String account) {
     Validate.notBlank(account, "参数错误！");
-    UserEntity op = userRepository.findByAccountAndStatus(account, UseStatus.STATUS_NORMAL);
+    // UserEntity op = userRepository.findByAccountAndStatus(account, UseStatus.STATUS_NORMAL);
+    UserEntity op = userRepository.findByAccount(account);
     if (op == null) {
       return null;
     }
@@ -235,11 +220,27 @@ public class UserServiceImpl implements UserService {
     UserEntity opUser = userRepository.getOne(id);
     Validate.notNull(opUser, "用户不存在！");
     // opUser.setPassword(passwordEncoder.encodePassword(RESETPSD, null));
-    opUser.setPassword(passwordEncoder.encode(RESETPSD));
+    opUser.setPassword(passwordEncoder.encodePassword(RESETPSD,null));
     opUser.setIsResetPsd(false);
     opUser.setModifyUser(user);
     opUser.setModifyDate(new Date());
     return userRepository.saveAndFlush(opUser);
+  }
+
+  @Override
+  public void createByInit() {
+    UserEntity operator = new UserEntity();
+    operator.setUserName("admin");
+    operator.setAccount("admin");
+    operator.setPassword(passwordEncoder.encodePassword("123456",null));
+    Set<RoleEntity> exsitRoles = new HashSet<>();
+    RoleEntity currentRole = this.roleService.findByName("ADMIN");
+    Validate.isTrue(currentRole != null && currentRole.getStatus() == UseStatus.STATUS_NORMAL,
+            "错误的角色信息，请检查!!");
+    exsitRoles.add(currentRole);
+    operator.setRoles(exsitRoles);
+    UserEntity newOperator = userRepository.saveAndFlush(operator);
+    securityService.bindRoleForOperator(currentRole.getId(), newOperator.getId());
   }
 
 }

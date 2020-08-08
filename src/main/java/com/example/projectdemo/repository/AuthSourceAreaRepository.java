@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface AuthSourceAreaRepository extends
         JpaRepository<AuthSourceAreaEntity, String>,
         JpaSpecificationExecutor<AuthSourceAreaEntity> {
+
+    void deleteById(String id);
+
+    AuthSourceAreaEntity findById(String id);
 }

@@ -9,4 +9,9 @@ import org.springframework.stereotype.Repository;
 public interface OriginalBrandRepository extends
         JpaRepository<OriginalBrandEntity, String>,
         JpaSpecificationExecutor<OriginalBrandEntity> {
+
+    void deleteById(String id);
+
+    OriginalBrandEntity findById(String id);
+
 }

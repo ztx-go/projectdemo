@@ -56,7 +56,6 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/projectdemo?characterEncoding=UTF-8&serverTimezone = GMT
     username: root
     password: 123456
-    driverClassName: com.mysql.cj.jdbc.Driver
-#    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.jdbc.Driver
 
 eospUrl: 192.168.0.24:6650    

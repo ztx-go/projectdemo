@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface OriginalCopyrightRepository extends
         JpaRepository<OriginalCopyrightEntity, String>,
         JpaSpecificationExecutor<OriginalCopyrightEntity> {
+
+    void deleteById(String id);
+
+    OriginalCopyrightEntity findById(String id);
 }

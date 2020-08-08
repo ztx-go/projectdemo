@@ -45,7 +45,7 @@ public class AuthCopyrightServiceImpl implements AuthCopyrightService {
 
     @Override
     public AuthCopyrightEntity findById(String id) {
-        AuthCopyrightEntity entity = authCopyrightRepository.findById(id).orElse(null);
+        AuthCopyrightEntity entity = authCopyrightRepository.findById(id);
         return entity;
     }
 

@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface OriginalTraditionalRepository extends
         JpaRepository<OriginalTraditionalEntity, String>,
         JpaSpecificationExecutor<OriginalTraditionalEntity> {
+
+    void deleteById(String id);
+
+    OriginalTraditionalEntity findById(String id);
 }

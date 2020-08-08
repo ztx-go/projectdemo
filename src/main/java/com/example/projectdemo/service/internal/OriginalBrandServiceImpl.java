@@ -45,7 +45,7 @@ public class OriginalBrandServiceImpl implements OriginalBrandService {
 
     @Override
     public OriginalBrandEntity findById(String id) {
-        OriginalBrandEntity entity = originalBrandRepository.findById(id).orElse(null);
+        OriginalBrandEntity entity = originalBrandRepository.findById(id);
         return entity;
     }
 

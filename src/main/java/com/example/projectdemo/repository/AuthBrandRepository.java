@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface AuthBrandRepository extends
         JpaRepository<AuthBrandEntity, String>,
         JpaSpecificationExecutor<AuthBrandEntity> {
+
+    void deleteById(String id);
+
+    AuthBrandEntity findById(String id);
 }

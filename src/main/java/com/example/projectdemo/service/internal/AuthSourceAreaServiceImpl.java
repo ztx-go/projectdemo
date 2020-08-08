@@ -45,7 +45,7 @@ public class AuthSourceAreaServiceImpl implements AuthSourceAreaService {
 
     @Override
     public AuthSourceAreaEntity findById(String id) {
-        AuthSourceAreaEntity entity = authSourceAreaRepository.findById(id).orElse(null);
+        AuthSourceAreaEntity entity = authSourceAreaRepository.findById(id);
         return entity;
     }
 

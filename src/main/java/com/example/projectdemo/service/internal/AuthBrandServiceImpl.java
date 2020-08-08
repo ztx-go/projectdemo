@@ -45,7 +45,7 @@ public class AuthBrandServiceImpl implements AuthBrandService {
 
     @Override
     public AuthBrandEntity findById(String id) {
-        AuthBrandEntity entity = authBrandRepository.findById(id).orElse(null);
+        AuthBrandEntity entity = authBrandRepository.findById(id);
         return entity;
     }
 

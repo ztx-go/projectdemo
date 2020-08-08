@@ -5,7 +5,6 @@ import com.example.projectdemo.common.enums.UseStatus;
 import com.example.projectdemo.common.enums.UserType;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -52,17 +51,17 @@ public class UserEntity extends UuidEntity {
   private String userName;
 
   /** 状态 1正常, 0禁用(枚举). **/
-  @Type(type = "useStatus")
+  // @Type(type = "useStatus")
   @Column(name = "status", nullable = false)
   private UseStatus status = UseStatus.STATUS_NORMAL;
 
   //  /** 用户所属类型::  1:"部门人员", 2:"街道人员", 3:"楼宇人员" **/
-  @Type(type = "userType")
+  // @Type(type = "userType")
   @Column(name = "user_type")
   private UserType userType;
 
   /** 所属街道类型 **/
-  @Type(type = "streetType")
+  // @Type(type = "streetType")
   @Column(name = "street_type")
   private StreetType streetType;
 

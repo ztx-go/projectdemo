@@ -46,7 +46,7 @@ public class OriginalCopyrightServiceImpl implements OriginalCopyrightService {
 
     @Override
     public OriginalCopyrightEntity findById(String id) {
-        OriginalCopyrightEntity entity = originalCopyrightRepository.findById(id).orElse(null);
+        OriginalCopyrightEntity entity = originalCopyrightRepository.findById(id);
         return entity;
     }
 

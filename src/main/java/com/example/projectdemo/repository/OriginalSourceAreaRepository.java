@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface OriginalSourceAreaRepository extends
         JpaRepository<OriginalSourceAreaEntity, String>,
         JpaSpecificationExecutor<OriginalSourceAreaEntity> {
+
+    void deleteById(String id);
+
+    OriginalSourceAreaEntity findById(String id);
 }

@@ -41,7 +41,7 @@ public class AuthTraditionalServiceImpl implements AuthTraditionalService {
 
     @Override
     public AuthTraditionalEntity findById(String id) {
-        AuthTraditionalEntity entity = authTraditionalRepository.findById(id).orElse(null);
+        AuthTraditionalEntity entity = authTraditionalRepository.findById(id);
         return entity;
     }
 
