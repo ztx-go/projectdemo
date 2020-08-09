@@ -2,7 +2,6 @@ package com.example.projectdemo.service.internal;
 
 import com.example.projectdemo.common.enums.EntityType;
 import com.example.projectdemo.common.enums.UseStatus;
-import com.example.projectdemo.common.enums.UserType;
 import com.example.projectdemo.entity.RoleEntity;
 import com.example.projectdemo.entity.UserEntity;
 import com.example.projectdemo.repository.UserRepository;
@@ -60,9 +59,6 @@ public class UserServiceImpl implements UserService {
     // Validate.isTrue(StringValidateUtils.validStrByPattern(pwd, "[a-zA-Z\\d]{6,12}"),
     // "密码长度必须为6-12个字符，大小写英文字符或数字！");
     user.setPassword(passwordEncoder.encodePassword(pwd,null));
-    if (user.getUserType() == null) {
-      throw new IllegalAccessError("用户类型不能为空");
-    }
     user.setIsResetPsd(false);
     userRepository.save(user);
   }
@@ -112,34 +108,6 @@ public class UserServiceImpl implements UserService {
     // 修改人和修改时间
     oldUser.setModifyUser(user.getModifyUser());
     oldUser.setModifyDate(new Date());
-    // 判断用户类型
-    UserType userType = user.getUserType();
-    Validate.notNull(userType, "用户类型不能为空！");
-    oldUser.setUserType(userType);
-    /**
-     * 1.用户类型为部门人员，所属部门不为空，街道和楼宇置空.<br>
-     * 2.用户类型为街道人员，所属街道不为空，部门和楼宇置空.<br>
-     * 3.用户类型为楼宇人员，楼宇名称不为空，部门和街道置空.
-     */
-    if (userType == UserType.DEPART_STAFF) {
-      Validate.notNull(user.getDepart(), "所属部门不能为空！");
-      Validate.notBlank(user.getDepart().getId(), "所属部门不能为空");
-      oldUser.setDepart(mapTreeService.findById(user.getDepart().getId()));
-      oldUser.setStreetType(null);
-      oldUser.setBuildName(null);
-    }
-    if (userType == UserType.STREET_STAFF) {
-      Validate.notNull(user.getStreetType(), "所属街道不能为空！");
-      oldUser.setStreetType(user.getStreetType());
-      oldUser.setDepart(null);
-      oldUser.setBuildName(null);
-    }
-    if (userType == UserType.BUILD_STAFF) {
-      Validate.notBlank(user.getBuildName(), "楼宇名称不能为空！");
-      oldUser.setBuildName(user.getBuildName());
-      oldUser.setDepart(null);
-      oldUser.setStreetType(null);
-    }
     // 验证密码格式是否输入正确(密码可以不修改)
     if (null != user.getPassword() && user.getPassword().length() != 0) {
       // Validate.isTrue(

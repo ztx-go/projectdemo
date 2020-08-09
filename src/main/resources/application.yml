@@ -20,7 +20,7 @@ swagger:
 roles:
   deleteDenys: ADMIN
 author:
-  ignoreUrls: /,/home,/index,/error,/v1/api-docs,/login,/swagger/**,/system/**,/index.**,/excel/**,/v1/security/loginFail,/v1/security/loginSuccess,/v1/security/logoutSuccess,/v2/api-docs,/v1/competence/findByCurrentUser,/v1/logRecord/getALLEnums,/v1/logRecord/getEnums,/v1/synchronousData/**
+  ignoreUrls: /,/home,/index,/error,/v1/api-docs,/login,/swagger/**,/system/**,/index.**,/excel/**,/v1/security/loginFail,/v1/security/loginSuccess,/v1/security/logoutSuccess,/v2/api-docs,/v1/competence/findByCurrentUser,/v1/logRecord/getALLEnums,/v1/logRecord/getEnums
 
 #hystrix调用方法的超时时间，默认是1000毫秒
 hystrix:

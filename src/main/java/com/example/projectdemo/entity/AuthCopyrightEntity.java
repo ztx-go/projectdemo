@@ -5,6 +5,7 @@ import com.example.projectdemo.common.enums.ProductionType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -56,7 +57,7 @@ public class AuthCopyrightEntity extends UuidEntity {
     /**
      * 作品类型
      **/
-    // @Type(type = "productionType")
+    @Type(type = "productionType")
     @Column(name = "production_type")
     private ProductionType productionType;
 

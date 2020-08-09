@@ -19,11 +19,11 @@ import java.util.Properties;
  * 自定义枚举客户化映射类型<br/>
  * 参考配置：
  * 
- * @TypeDefs({@TypeDef(name = "status" , typeClass = EnumType. class , parameters = {
- * @Parameter(name = "class" , value = "demo.domain.one2one.testtwo.Order$StatusEnum" ),
- * @Parameter(name = "field" , value = "status" ),
- * @Parameter(name = "method" , value = "getStatusEnum" )}) })
- * @Type(type = "status" ) Parameter： class:枚举类名(必填) field:需要保存进数据库的字段名(选填 默认为"value")，该字段必须为int类型
+ * ({(name = "status" , typeClass = EnumType. class , parameters = {
+ * (name = "class" , value = "demo.domain.one2one.testtwo.Order$StatusEnum" ),
+ * (name = "field" , value = "status" ),
+ * (name = "method" , value = "getStatusEnum" )}) })
+ * (type = "status" ) Parameter： class:枚举类名(必填) field:需要保存进数据库的字段名(选填 默认为"value")，该字段必须为int类型
  *            method:根据字段值获取枚举的静态方法名(选填 ,默认为"get")
  *
  */

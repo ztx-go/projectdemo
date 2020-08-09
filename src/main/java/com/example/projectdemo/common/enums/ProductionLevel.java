@@ -8,7 +8,6 @@ public enum ProductionLevel implements EnumTypeInterface {
     /**
      * 国际领先
      */
-//    leading
     INTERNATIONAL_LEADING(1, "国际领先"),
 
     /**

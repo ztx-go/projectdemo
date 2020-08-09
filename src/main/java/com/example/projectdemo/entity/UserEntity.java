@@ -1,9 +1,7 @@
 package com.example.projectdemo.entity;
 
 import com.example.projectdemo.common.enums.EnumType;
-import com.example.projectdemo.common.enums.StreetType;
 import com.example.projectdemo.common.enums.UseStatus;
-import com.example.projectdemo.common.enums.UserType;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
@@ -24,229 +22,199 @@ import java.util.Set;
 @Table(name = "eb_user")
 @TypeDefs({
         @TypeDef(name = "useStatus", typeClass = EnumType.class, parameters = {
-                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.UseStatus")}),
-        @TypeDef(name = "userType", typeClass = EnumType.class, parameters = {
-                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.UserType")}),
-        @TypeDef(name = "streetType", typeClass = EnumType.class, parameters = {
-                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.StreetType")})})
+                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.UseStatus")})})
 public class UserEntity extends UuidEntity {
 
-  /**
-   *
-   */
-  private static final long serialVersionUID = 2530517105565916389L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 2530517105565916389L;
 
-  /**
-   * 用户账户
-   */
-  @Column(name = "user_account", unique = true, nullable = false)
-  private String account;
+    /**
+     * 用户账户
+     */
+    @Column(name = "user_account", unique = true, nullable = false)
+    private String account;
 
-  /** 密码. **/
-  @Column(name = "password")
-  private String password = "";
+    /**
+     * 密码.
+     **/
+    @Column(name = "password")
+    private String password = "";
 
-  /**
-   * 最后登录时间
-   */
-  @Column(name = "last_login_date")
-  private Date lastLoginDate;
+    /**
+     * 最后登录时间
+     */
+    @Column(name = "last_login_date")
+    private Date lastLoginDate;
 
-  /**
-   * 用户名称
-   */
-  @Column(name = "user_name", nullable = false)
-  private String userName;
+    /**
+     * 用户名称
+     */
+    @Column(name = "user_name", nullable = false)
+    private String userName;
 
-  /** 状态 1正常, 0禁用(枚举). **/
-  @Type(type = "useStatus")
-  @Column(name = "status", nullable = false)
-  private UseStatus status = UseStatus.STATUS_NORMAL;
+    /**
+     * 状态 1正常, 0禁用(枚举).
+     **/
+    @Type(type = "useStatus")
+    @Column(name = "status", nullable = false)
+    private UseStatus status = UseStatus.STATUS_NORMAL;
 
-  //  /** 用户所属类型::  1:"部门人员", 2:"街道人员", 3:"楼宇人员" **/
-  @Type(type = "userType")
-  @Column(name = "user_type")
-  private UserType userType;
+    /**
+     * 是否重置密码.
+     **/
+    @Column(name = "is_reset_psd")
+    private Boolean isResetPsd = false;
 
-  /** 所属街道类型 **/
-  @Type(type = "streetType")
-  @Column(name = "street_type")
-  private StreetType streetType;
+    /**
+     * 手机号码.
+     **/
+    @Column(name = "telephone")
+    private String telephone;
 
-  /** 楼宇名称. **/
-  @Column(name = "build_name")
-  private String buildName;
+    /**
+     * 角色.
+     **/
+    @ApiModelProperty(hidden = true)
+    @ManyToMany(mappedBy = "users")
+    private Set<RoleEntity> roles;
 
-  /** 部门机构. **/
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "depart")
-  private MapTreeEntity depart;
+    /** 部门机构. **/
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "depart")
+    private MapTreeEntity depart;
 
-  /** 是否重置密码. **/
-  @Column(name = "is_reset_psd")
-  private Boolean isResetPsd = false;
+    /**
+     * 创建人
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "create_user")
+    @ApiModelProperty(hidden = true)
+    private UserEntity createUser;
 
-  /** 手机号码. **/
-  @Column(name = "telephone")
-  private String telephone;
+    /**
+     * 修改人
+     **/
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "modify_user")
+    @ApiModelProperty(hidden = true)
+    private UserEntity modifyUser;
 
-  /** 角色. **/
-  @ApiModelProperty(hidden = true)
-  @ManyToMany(mappedBy = "users")
-  private Set<RoleEntity> roles;
+    /**
+     * 创建时间
+     */
+    @Column(name = "create_time", nullable = false)
+    private Date createDate = new Date();
 
-  /** 创建人 */
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "create_user")
-  @ApiModelProperty(hidden = true)
-  private UserEntity createUser;
+    /**
+     * 修改时间
+     */
+    @Column(name = "modify_time", nullable = true)
+    private Date modifyDate;
 
-  /** 修改人 **/
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "modify_user")
-  @ApiModelProperty(hidden = true)
-  private UserEntity modifyUser;
+    public Date getCreateDate() {
+        return createDate;
+    }
 
-  /**
-   * 创建时间
-   */
-  @Column(name = "create_time", nullable = false)
-  private Date createDate = new Date();
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
-  /**
-   * 修改时间
-   */
-  @Column(name = "modify_time", nullable = true)
-  private Date modifyDate;
+    public Date getModifyDate() {
+        return modifyDate;
+    }
 
-  public Date getCreateDate() {
-    return createDate;
-  }
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
 
-  public void setCreateDate(Date createDate) {
-    this.createDate = createDate;
-  }
+    public String getAccount() {
+        return account;
+    }
 
-  public Date getModifyDate() {
-    return modifyDate;
-  }
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
-  public void setModifyDate(Date modifyDate) {
-    this.modifyDate = modifyDate;
-  }
+    public String getUserName() {
+        return userName;
+    }
 
-  public String getAccount() {
-    return account;
-  }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-  public void setAccount(String account) {
-    this.account = account;
-  }
+    public UseStatus getStatus() {
+        return status;
+    }
 
-  public String getUserName() {
-    return userName;
-  }
+    public void setStatus(UseStatus status) {
+        this.status = status;
+    }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public UseStatus getStatus() {
-    return status;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public void setStatus(UseStatus status) {
-    this.status = status;
-  }
+    public Date getLastLoginDate() {
+        return lastLoginDate;
+    }
 
-  public String getPassword() {
-    return password;
-  }
+    public void setLastLoginDate(Date lastLoginDate) {
+        this.lastLoginDate = lastLoginDate;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public Set<RoleEntity> getRoles() {
+        return roles;
+    }
 
-  public Date getLastLoginDate() {
-    return lastLoginDate;
-  }
+    public void setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
+    }
 
-  public void setLastLoginDate(Date lastLoginDate) {
-    this.lastLoginDate = lastLoginDate;
-  }
+    public UserEntity getCreateUser() {
+        return createUser;
+    }
 
-  public Set<RoleEntity> getRoles() {
-    return roles;
-  }
+    public void setCreateUser(UserEntity createUser) {
+        this.createUser = createUser;
+    }
 
-  public void setRoles(Set<RoleEntity> roles) {
-    this.roles = roles;
-  }
+    public UserEntity getModifyUser() {
+        return modifyUser;
+    }
 
-  public UserEntity getCreateUser() {
-    return createUser;
-  }
-
-  public void setCreateUser(UserEntity createUser) {
-    this.createUser = createUser;
-  }
-
-  public UserEntity getModifyUser() {
-    return modifyUser;
-  }
-
-  public void setModifyUser(UserEntity modifyUser) {
-    this.modifyUser = modifyUser;
-  }
-
-
-  public Boolean getIsResetPsd() {
-    return isResetPsd;
-  }
-
-  public void setIsResetPsd(Boolean isResetPsd) {
-    this.isResetPsd = isResetPsd;
-  }
-
-  public String getTelephone() {
-    return telephone;
-  }
-
-  public void setTelephone(String telephone) {
-    this.telephone = telephone;
-  }
-
-  public MapTreeEntity getDepart() {
-    return depart;
-  }
-
-  public void setDepart(MapTreeEntity depart) {
-    this.depart = depart;
-  }
-
-  public UserType getUserType() {
-    return userType;
-  }
-
-  public void setUserType(UserType userType) {
-    this.userType = userType;
-  }
-
-  public StreetType getStreetType() {
-    return streetType;
-  }
-
-  public void setStreetType(StreetType streetType) {
-    this.streetType = streetType;
-  }
-
-  public String getBuildName() {
-    return buildName;
-  }
-
-  public void setBuildName(String buildName) {
-    this.buildName = buildName;
-  }
+    public void setModifyUser(UserEntity modifyUser) {
+        this.modifyUser = modifyUser;
+    }
 
 
+    public Boolean getIsResetPsd() {
+        return isResetPsd;
+    }
+
+    public void setIsResetPsd(Boolean isResetPsd) {
+        this.isResetPsd = isResetPsd;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public MapTreeEntity getDepart() {
+        return depart;
+    }
+
+    public void setDepart(MapTreeEntity depart) {
+        this.depart = depart;
+    }
 }

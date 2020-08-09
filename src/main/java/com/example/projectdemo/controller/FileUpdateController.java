@@ -56,7 +56,6 @@ public class FileUpdateController extends BaseController {
    * 这个方法用于上传单个文件使用
    * 
    * @param file 上传的文件信息
-   * @param response
    * @throws IllegalStateException
    * @throws IOException
    */

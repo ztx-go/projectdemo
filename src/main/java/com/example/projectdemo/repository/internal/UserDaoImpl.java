@@ -51,11 +51,7 @@ public class UserDaoImpl implements UserDao {
           predicates.add(cb.like(root.join("depart").get("name").as(String.class),
               "%" + map.get("depart").toString() + "%"));
         }
-        // 所属街道查询
-        // if (map.get("streetType") != null) {
-        //   predicates.add(cb.equal(root.get("streetType").as(StreetType.class),
-        //       (StreetType) map.get("streetType")));
-        // }
+
         // 查询是否重置密码
         if (map.get("isResetPsd") != null) {
           boolean flag = (boolean) map.get("isResetPsd");

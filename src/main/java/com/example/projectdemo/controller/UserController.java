@@ -1,10 +1,8 @@
 package com.example.projectdemo.controller;
 
 import com.example.projectdemo.common.enums.EntityType;
-import com.example.projectdemo.common.enums.StreetType;
 import com.example.projectdemo.common.enums.UseStatus;
 import com.example.projectdemo.controller.model.ResponseModel;
-import com.example.projectdemo.entity.MapTreeEntity;
 import com.example.projectdemo.entity.RoleEntity;
 import com.example.projectdemo.entity.UserEntity;
 import com.example.projectdemo.service.UserService;
@@ -26,7 +24,6 @@ import java.util.*;
 /**
  * 用户管理控制层
  * 
- * @ClassName: UserController
  */
 @Api(value = "UserController")
 @RestController
@@ -105,7 +102,6 @@ public class UserController extends BaseController {
   public ResponseModel findByParams(@ApiParam(value = "账号") String account,
       @ApiParam(value = "名字") String name, @ApiParam(value = "状态（正常/禁用）") UseStatus status,
       @ApiParam(value = "部门机构") String depart,
-      @ApiParam(value = "街道类型") StreetType streetType,
       @ApiParam(value = "是否重置密码") Boolean isResetPsd,
       @ApiParam(value = "自动注入分页对象") @PageableDefault(value = 15, sort = {
           "createDate"}, direction = Sort.Direction.DESC) Pageable pageable) {
@@ -122,9 +118,6 @@ public class UserController extends BaseController {
       }
       if (StringUtils.isNotEmpty(depart)) {
         params.put("depart", depart);
-      }
-      if (null != streetType) {
-        params.put("streetType", streetType);
       }
       if (null != isResetPsd) {
         params.put("isResetPsd", isResetPsd);
@@ -166,22 +159,10 @@ public class UserController extends BaseController {
   /**
    * 组装用户集合创建人、修改人
    * 
-   * @Title: levelOneAssociation
-   * @date: 2019年3月27日 下午10:53:20
-   * @param: @param users
-   * @return: void
-   * @author: fanda
    */
   private void levelOneAssociation(List<UserEntity> users) {
 
     for (UserEntity user : users) {
-      if (null != user.getDepart()) {
-        MapTreeEntity map = new MapTreeEntity();
-        map.setId(user.getDepart().getId());
-        map.setName(user.getDepart().getName());
-        user.setDepart(map);
-      }
-
       if (null != user.getCreateUser()) {
         UserEntity creator = new UserEntity();
         creator.setId(user.getCreateUser().getId());
@@ -200,21 +181,8 @@ public class UserController extends BaseController {
 
   /**
    * 组装用户创建人、修改人、关联角色
-   * 
-   * @Title: levelOneAssociation
-   * @date: 2019年3月27日 下午10:35:39
-   * @param: @param user
-   * @return: void
-   * @author: fanda
    */
   private void levelOneAssociation(UserEntity user) {
-
-    if (null != user.getDepart()) {
-      MapTreeEntity map = new MapTreeEntity();
-      map.setId(user.getDepart().getId());
-      map.setName(user.getDepart().getName());
-      user.setDepart(map);
-    }
 
     if (null != user.getCreateUser()) {
       UserEntity creator = new UserEntity();

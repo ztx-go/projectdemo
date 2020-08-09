@@ -22,8 +22,6 @@ public interface RoleRepository extends JpaRepository<RoleEntity, String>, JpaSp
 	/**
 	 * 查询指定的功能描述所绑定的角色信息
 	 * 
-	 * @param competenceId 功能描述信息
-	 * @return
 	 */
 	@Query("from RoleEntity r left join fetch r.competences c where c.id = :competenceId")
 	Set<RoleEntity> findByCompetenceId(@Param("competenceId") String competenceId);
@@ -31,8 +29,6 @@ public interface RoleRepository extends JpaRepository<RoleEntity, String>, JpaSp
 //	/**
 //	 * 查询指定的部门所绑定的角色信息(指定的用户)
 //	 * 
-//	 * @param userAccount 注意用户名必须完成包括域信息，例如yinwenjie@vanda.com、user@zkx.com
-//	 * @return
 //	 */
 //	@Query("from RoleEntity r left join fetch r.ldapusers l where l.ldapName = :userAccount and l.nodeType = 1 and l.del = false")
 //	Set<RoleEntity> findByUserAccount(@Param("userAccount") String userAccount);
@@ -57,8 +53,6 @@ public interface RoleRepository extends JpaRepository<RoleEntity, String>, JpaSp
 //  /**
 //   * 查询指定的部门所绑定的角色信息(指定的部门信息)
 //   *
-//   * @param userAccount 注意部门信息必须完整，例如ou=jiaodao,ou=nianji1
-//   * @return
 //   */
 //  @Query("from RoleEntity r left join fetch r.ldapusers l where l.ldapName = :orgs and l.nodeType = 2")
 //	Set<RoleEntity> findByOrgs(@Param("orgs") String orgs);
@@ -66,8 +60,6 @@ public interface RoleRepository extends JpaRepository<RoleEntity, String>, JpaSp
 	/**
 	 * 查询指定的用户绑定的角色信息
 	 *
-	 * @param userAccount 注意部门信息必须完整，例如ou=jiaodao,ou=nianji1
-	 * @return
 	 */
 	@Query("from RoleEntity r left join fetch r.users l where l.userName = :orgs and l.status =1")
 	Set<RoleEntity> findByOrgs(@Param("orgs") String orgs);
@@ -115,9 +107,6 @@ public interface RoleRepository extends JpaRepository<RoleEntity, String>, JpaSp
 //	/**
 //	 * 该方法可以确定指定的角色和指定的ldapNode是否已有绑定关系
 //	 *
-//	 * @param roleId
-//	 * @param ldapNodeId
-//	 * @return
 //	 */
 //	@Query("from LdapNodeEntity a left join fetch a.roles r where a.id = :ldapNodeId and r.id = :roleId")
 //	LdapNodeEntity findLdapNodeByRoleIdAndLdapNodeId(@Param("roleId") String roleId,

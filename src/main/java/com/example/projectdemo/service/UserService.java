@@ -20,18 +20,12 @@ public interface UserService {
   /**
    * 新增用户
    *
-   * @param: @param user
-   * @return: void
    */
   void create(UserEntity user, UserEntity opter, EntityType enty);
 
   /**
    * 修改管理员的密码
    *
-   * @param id 要修改密码的管理员的id
-   * @param oldPassword 原密码
-   * @param newPassword 新密码
-   * @param operator 修改人
    */
   void updatePassword(String id, String oldPassword, String newPassword, UserEntity operator);
 
