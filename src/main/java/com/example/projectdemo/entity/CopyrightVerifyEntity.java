@@ -12,41 +12,35 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 原创作品_版权作品存证实体
+ * 版权确认
  */
-@ApiModel(value = "OriginalCopyrightEntity")
+@ApiModel(value = "CopyrightVerifyEntity")
 @Entity
-@Table(name = "original_copyright")
+@Table(name = "copyright_verify")
 @TypeDefs({
         @TypeDef(name = "productionType", typeClass = EnumType.class, parameters = {
                 @Parameter(name = "class", value = "com.example.projectdemo.common.enums.ProductionType")})})
-public class OriginalCopyrightEntity extends UuidEntity{
+public class CopyrightVerifyEntity extends UuidEntity {
 
-    private static final long serialVersionUID = -8651630673460228829L;
-
-    /**
-     * 作品名称
-     **/
-    @Column(name = "production_name")
-    private String productionName;
+    private static final long serialVersionUID = 5318612731424368075L;
 
     /**
-     * 创作人
-     **/
-    @Column(name = "production_composer")
-    private String productionComposer;
+     *信息上链哈希
+     */
+    @Column(name = "message_chain_hash")
+    private String messageChainHash;
 
     /**
-     * 权利人（企业）名称
-     **/
-    @Column(name = "applicant_name")
-    private String applicantName;
+     * 上链区块
+     */
+    @Column(name = "chain_block")
+    private String chainBlock;
 
     /**
-     * 身份证号码（纳税识别号）
-     **/
-    @Column(name = "identity_number")
-    private String identityNumber;
+     * 登记号
+     */
+    @Column(name = "register_number")
+    private String registerNumber;
 
     /**
      * 作品类型
@@ -56,16 +50,28 @@ public class OriginalCopyrightEntity extends UuidEntity{
     private ProductionType productionType;
 
     /**
-     * 创作思路概述
-     **/
-    @Column(name = "create_thinking")
-    private String createThinking;
+     * 作品名称
+     */
+    @Column(name = "production_name")
+    private String productionName;
 
     /**
-     * 存证文件（文件，图片等）
-     **/
-    @Column(name = "save_file")
-    private String saveFile;
+     * 作者名称
+     */
+    @Column(name = "author_name")
+    private String authorName;
+
+    /**
+     * 作品名称
+     */
+    @Column(name = "production_check")
+    private String productionCheck;
+
+    /**
+     * 登记证明
+     */
+    @Column(name = "register_certificate")
+    private String  registerCertificate;
 
     /**
      * 创建人
@@ -92,39 +98,31 @@ public class OriginalCopyrightEntity extends UuidEntity{
     /**
      * 修改时间
      */
-    @Column(name = "modify_time", nullable = true)
+    @Column(name = "modify_time")
     private Date modifyDate;
 
-    public String getProductionName() {
-        return productionName;
+    public String getMessageChainHash() {
+        return messageChainHash;
     }
 
-    public void setProductionName(String productionName) {
-        this.productionName = productionName;
+    public void setMessageChainHash(String messageChainHash) {
+        this.messageChainHash = messageChainHash;
     }
 
-    public String getProductionComposer() {
-        return productionComposer;
+    public String getChainBlock() {
+        return chainBlock;
     }
 
-    public void setProductionComposer(String productionComposer) {
-        this.productionComposer = productionComposer;
+    public void setChainBlock(String chainBlock) {
+        this.chainBlock = chainBlock;
     }
 
-    public String getApplicantName() {
-        return applicantName;
+    public String getRegisterNumber() {
+        return registerNumber;
     }
 
-    public void setApplicantName(String applicantName) {
-        this.applicantName = applicantName;
-    }
-
-    public String getIdentityNumber() {
-        return identityNumber;
-    }
-
-    public void setIdentityNumber(String identityNumber) {
-        this.identityNumber = identityNumber;
+    public void setRegisterNumber(String registerNumber) {
+        this.registerNumber = registerNumber;
     }
 
     public ProductionType getProductionType() {
@@ -135,20 +133,36 @@ public class OriginalCopyrightEntity extends UuidEntity{
         this.productionType = productionType;
     }
 
-    public String getCreateThinking() {
-        return createThinking;
+    public String getProductionName() {
+        return productionName;
     }
 
-    public void setCreateThinking(String createThinking) {
-        this.createThinking = createThinking;
+    public void setProductionName(String productionName) {
+        this.productionName = productionName;
     }
 
-    public String getSaveFile() {
-        return saveFile;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public void setSaveFile(String saveFile) {
-        this.saveFile = saveFile;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getProductionCheck() {
+        return productionCheck;
+    }
+
+    public void setProductionCheck(String productionCheck) {
+        this.productionCheck = productionCheck;
+    }
+
+    public String getRegisterCertificate() {
+        return registerCertificate;
+    }
+
+    public void setRegisterCertificate(String registerCertificate) {
+        this.registerCertificate = registerCertificate;
     }
 
     public UserEntity getCreateUser() {

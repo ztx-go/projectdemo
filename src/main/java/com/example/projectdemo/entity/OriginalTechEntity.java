@@ -5,6 +5,7 @@ import com.example.projectdemo.common.enums.TechType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -46,12 +47,14 @@ public class OriginalTechEntity extends UuidEntity {
     /**
      * 技术类型
      **/
+    @Type(type = "techType")
     @Column(name = "tech_type")
     private TechType techType;
 
     /**
      * 技术课题来源
      **/
+    @Type(type = "techProjectSource")
     @Column(name = "tech_project_source")
     private TechProjectSource techProjectSource;
 

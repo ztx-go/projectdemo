@@ -4,6 +4,7 @@ package com.example.projectdemo.entity;
 import com.example.projectdemo.common.enums.SourceType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -25,6 +26,7 @@ public class AuthTraditionalEntity extends UuidEntity {
     /**
      * 来源
      **/
+    @Type(type = "sourceType")
     @Column(name = "source_type")
     private SourceType sourceType;
 

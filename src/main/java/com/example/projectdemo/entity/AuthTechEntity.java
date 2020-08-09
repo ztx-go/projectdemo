@@ -4,6 +4,7 @@ import com.example.projectdemo.common.enums.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -23,6 +24,8 @@ import java.util.Date;
                 @Parameter(name = "class", value = "com.example.projectdemo.common.enums.ProductionLevel")}),
         @TypeDef(name = "techProjectSource", typeClass = EnumType.class, parameters = {
                 @Parameter(name = "class", value = "com.example.projectdemo.common.enums.TechProjectSource")}),
+        @TypeDef(name = "evaluationWay", typeClass = EnumType.class, parameters = {
+                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.EvaluationWay")}),
         @TypeDef(name = "productionLevel", typeClass = EnumType.class, parameters = {
                 @Parameter(name = "class", value = "com.example.projectdemo.common.enums.ProductionLevel")}),
         @TypeDef(name = "productionStage", typeClass = EnumType.class, parameters = {
@@ -60,19 +63,21 @@ public class AuthTechEntity extends UuidEntity {
     /**
      * 技术类型
      **/
-    // @Type(type = "techType")
+    @Type(type = "techType")
     @Column(name = "tech_type")
     private TechType techType;
 
     /**
      * 成果水平
      **/
+    @Type(type = "productionLevel")
     @Column(name = "production_level")
     private ProductionLevel productionLevel;
 
     /**
      * 技术课题来源
      **/
+    @Type(type = "techProjectSource")
     @Column(name = "tech_project_source")
     private TechProjectSource techProjectSource;
 
@@ -85,6 +90,7 @@ public class AuthTechEntity extends UuidEntity {
     /**
      * 评价方式
      **/
+    @Type(type = "evaluationWay")
     @Column(name = "evaluation_way")
     private EvaluationWay evaluationWay;
 
@@ -97,12 +103,14 @@ public class AuthTechEntity extends UuidEntity {
     /**
      * 所处阶段
      **/
+    @Type(type = "productionStage")
     @Column(name = "production_stage")
     private ProductionStage productionStage;
 
     /**
      * 应用状态
      **/
+    @Type(type = "productionUseType")
     @Column(name = "production_use_type")
     private ProductionUseType productionUseType;
 

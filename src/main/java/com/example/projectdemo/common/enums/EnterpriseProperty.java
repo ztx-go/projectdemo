@@ -1,29 +1,19 @@
 package com.example.projectdemo.common.enums;
 
 /**
- * 评价方式
+ * 企业属性
  */
-public enum EvaluationWay implements EnumTypeInterface {
+public enum EnterpriseProperty implements EnumTypeInterface {
 
     /**
-     * 鉴定
+     * 盈利企业
      */
-    AUTHENTICATE_WAY(1, "鉴定"),
+    PROFIT_ENTERPRISE(1,"盈利企业"),
 
     /**
-     * 验收
+     * 公益企业
      */
-    ACCEPT_WAY(2, "验收"),
-
-    /**
-     * 评审
-     */
-    REVIEW_WAY(3, "评审"),
-
-    /**
-     * 结题
-     */
-    CONCLUSION_WAY(4, "结题"),
+    COMMONWEAL_ENTERPRISE(2,"公益企业"),
 
     /**
      * 其他
@@ -33,7 +23,7 @@ public enum EvaluationWay implements EnumTypeInterface {
     private int value;
     private String desc;
 
-    EvaluationWay(int value, String desc) {
+    EnterpriseProperty(int value, String desc) {
         this.value = value;
         this.desc = desc;
     }
@@ -49,8 +39,8 @@ public enum EvaluationWay implements EnumTypeInterface {
         return this.desc;
     }
 
-    public static EvaluationWay get(int value) {
-        for (EvaluationWay status : EvaluationWay.values()) {
+    public static EnterpriseProperty get(int value) {
+        for (EnterpriseProperty status : EnterpriseProperty.values()) {
             if (status.value == value) {
                 return status;
             }

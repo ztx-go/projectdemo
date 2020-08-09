@@ -3,6 +3,8 @@ package com.example.projectdemo.entity;
 import com.example.projectdemo.common.enums.SourceType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
@@ -17,14 +19,14 @@ import java.util.Date;
 @Table(name = "original_traditional")
 @TypeDefs({
         @TypeDef(name = "sourceType", typeClass = EnumType.class, parameters = {
-                @org.hibernate.annotations.Parameter(name = "class", value = "com.example.projectdemo.common.enums.SourceType")})})
-public class OriginalTraditionalEntity extends UuidEntity{
-
+                @Parameter(name = "class", value = "com.example.projectdemo.common.enums.SourceType")})})
+public class OriginalTraditionalEntity extends UuidEntity {
 
     private static final long serialVersionUID = -7988138590401179909L;
     /**
      * 来源
      **/
+    @Type(type = "sourceType")
     @Column(name = "source_type")
     private SourceType sourceType;
 

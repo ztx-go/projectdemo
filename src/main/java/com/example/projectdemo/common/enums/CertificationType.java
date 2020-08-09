@@ -1,29 +1,19 @@
 package com.example.projectdemo.common.enums;
 
 /**
- * 评价方式
+ * 实名认证
  */
-public enum EvaluationWay implements EnumTypeInterface {
+public enum CertificationType implements EnumTypeInterface {
 
     /**
-     * 鉴定
+     * 个人认证
      */
-    AUTHENTICATE_WAY(1, "鉴定"),
+    PERSONAL_CERTIFICATION(1,"个人认证"),
 
     /**
-     * 验收
+     * 企业认证
      */
-    ACCEPT_WAY(2, "验收"),
-
-    /**
-     * 评审
-     */
-    REVIEW_WAY(3, "评审"),
-
-    /**
-     * 结题
-     */
-    CONCLUSION_WAY(4, "结题"),
+    ENTERPRISE_CERTIFICATION(2,"企业认证"),
 
     /**
      * 其他
@@ -33,7 +23,7 @@ public enum EvaluationWay implements EnumTypeInterface {
     private int value;
     private String desc;
 
-    EvaluationWay(int value, String desc) {
+    CertificationType(int value, String desc) {
         this.value = value;
         this.desc = desc;
     }
@@ -49,8 +39,8 @@ public enum EvaluationWay implements EnumTypeInterface {
         return this.desc;
     }
 
-    public static EvaluationWay get(int value) {
-        for (EvaluationWay status : EvaluationWay.values()) {
+    public static CertificationType get(int value) {
+        for (CertificationType status : CertificationType.values()) {
             if (status.value == value) {
                 return status;
             }
