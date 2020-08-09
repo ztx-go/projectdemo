@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -20,7 +21,7 @@ import java.security.Principal;
 @Api(value = "授权作品_商标和商号存证controller")
 @RestController
 @RequestMapping("/v1/authBrand")
-public class AuthBrandController extends BaseController{
+public class AuthBrandController extends BaseController {
 
     @Autowired
     AuthBrandService authBrandService;
@@ -35,8 +36,8 @@ public class AuthBrandController extends BaseController{
             // 验证操作者是否登陆
             UserEntity userEntity = verifyLdapNodeLogin(logUser);
             Validate.notNull(userEntity, "操作者不能为空！");
-            AuthBrandEntity entity = authBrandService.create(authBrandEntity, userEntity);
-            return this.buildHttpReslut(entity);
+            authBrandService.create(authBrandEntity, userEntity);
+            return this.buildHttpReslut();
         } catch (Exception e) {
             return this.buildHttpReslutForException(e);
         }
@@ -49,8 +50,8 @@ public class AuthBrandController extends BaseController{
             // 验证操作者是否登陆
             UserEntity userEntity = verifyLdapNodeLogin(logUser);
             Validate.notNull(userEntity, "操作者不能为空！");
-            AuthBrandEntity entity = authBrandService.update(authBrandEntity, userEntity);
-            return this.buildHttpReslut(entity);
+            authBrandService.update(authBrandEntity, userEntity);
+            return this.buildHttpReslut();
         } catch (Exception e) {
             return this.buildHttpReslutForException(e);
         }
@@ -58,13 +59,27 @@ public class AuthBrandController extends BaseController{
 
     @ApiOperation(value = "通过id查询", notes = "通过id查询")
     @RequestMapping(value = "/findById", method = RequestMethod.GET)
-    public ResponseModel findById(@ApiParam(value = "id") String id, Principal logUser) {
+    public ResponseModel findById(@ApiParam(value = "id") @RequestParam String id, Principal logUser) {
         try {
             // 验证操作者是否登陆
             UserEntity userEntity = verifyLdapNodeLogin(logUser);
             Validate.notNull(userEntity, "操作者不能为空！");
             AuthBrandEntity entity = authBrandService.findById(id);
-            return this.buildHttpReslut(entity);
+            return this.buildHttpReslut(entity, "createUser", "modifyUser");
+        } catch (Exception e) {
+            return this.buildHttpReslutForException(e);
+        }
+    }
+
+    @ApiOperation(value = "删除", notes = "删除")
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public ResponseModel delete(@ApiParam(value = "id") @RequestParam String id, Principal logUser) {
+        try {
+            // 验证操作者是否登陆
+            UserEntity userEntity = verifyLdapNodeLogin(logUser);
+            Validate.notNull(userEntity, "操作者不能为空！");
+            authBrandService.delete(id);
+            return this.buildHttpReslut();
         } catch (Exception e) {
             return this.buildHttpReslutForException(e);
         }

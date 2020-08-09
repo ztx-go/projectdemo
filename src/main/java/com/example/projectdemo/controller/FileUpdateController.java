@@ -17,8 +17,6 @@ import java.util.List;
 
 /**
  * 这个controller用于接受一个新的文件，支持jpg、gif、png图片
- * 
- * @author yinwenjie
  */
 @Api(value = "文件上传restful接口")
 @RestController
@@ -30,9 +28,7 @@ public class FileUpdateController extends BaseController {
 
   /**
    * 这个方法用于上传单张图片使用
-   * 
-   * @param file 上传的文件信息
-   * @param response
+   *
    * @throws IllegalStateException
    * @throws IOException
    */

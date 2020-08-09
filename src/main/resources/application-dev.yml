@@ -2,28 +2,17 @@ server:
   port: 7750
 spring:
   application:
-    name: com.innovation.demo
-  # freemarker
-  freemarker: 
-    request-context-attribute: request
-    allow-request-override: false
-    template-loader-path: classpath:/static
-    cache: false
-    charset: UTF-8
-    expose-request-attributes: true
-    expose-session-attributes: true
-    suffix: .ftl
-  # jpa  
+    name: com.example.projectdemo
+  # jpa
   jpa: 
     show-sql: true
     generate-ddl: false
     database: MYSQL
     hibernate: 
       ddl-auto: update
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
 #swagger
 swagger:
   version: v0.0.9
@@ -41,9 +30,7 @@ hystrix:
         isolation: 
           thread: 
             timeoutInMilliseconds: 20000
-#调用高德地图配置
-amap: 
-  key: 8e08a80b71bf4ca887c22bf8b923cac1
+
 ---
 ########################## dev
 spring: 

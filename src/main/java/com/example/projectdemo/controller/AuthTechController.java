@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -35,8 +36,8 @@ public class AuthTechController extends BaseController {
             // 验证操作者是否登陆
             UserEntity userEntity = verifyLdapNodeLogin(logUser);
             Validate.notNull(userEntity, "操作者不能为空！");
-            AuthTechEntity entity = authTechService.create(authTechEntity, userEntity);
-            return this.buildHttpReslut(entity);
+            authTechService.create(authTechEntity, userEntity);
+            return this.buildHttpReslut();
         } catch (Exception e) {
             return this.buildHttpReslutForException(e);
         }
@@ -49,8 +50,8 @@ public class AuthTechController extends BaseController {
             // 验证操作者是否登陆
             UserEntity userEntity = verifyLdapNodeLogin(logUser);
             Validate.notNull(userEntity, "操作者不能为空！");
-            AuthTechEntity entity = authTechService.update(authTechEntity, userEntity);
-            return this.buildHttpReslut(entity);
+            authTechService.update(authTechEntity, userEntity);
+            return this.buildHttpReslut();
         } catch (Exception e) {
             return this.buildHttpReslutForException(e);
         }
@@ -64,7 +65,21 @@ public class AuthTechController extends BaseController {
             UserEntity userEntity = verifyLdapNodeLogin(logUser);
             Validate.notNull(userEntity, "操作者不能为空！");
             AuthTechEntity entity = authTechService.findById(id);
-            return this.buildHttpReslut(entity);
+            return this.buildHttpReslut(entity, "createUser", "modifyUser");
+        } catch (Exception e) {
+            return this.buildHttpReslutForException(e);
+        }
+    }
+
+    @ApiOperation(value = "删除", notes = "删除")
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public ResponseModel delete(@ApiParam(value = "id") @RequestParam String id, Principal logUser) {
+        try {
+            // 验证操作者是否登陆
+            UserEntity userEntity = verifyLdapNodeLogin(logUser);
+            Validate.notNull(userEntity, "操作者不能为空！");
+            authTechService.delete(id);
+            return this.buildHttpReslut();
         } catch (Exception e) {
             return this.buildHttpReslutForException(e);
         }

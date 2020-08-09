@@ -6,6 +6,7 @@
 
 package com.example.projectdemo.entity;
 
+import com.example.projectdemo.common.enums.EnumType;
 import com.example.projectdemo.common.enums.MapTreeType;
 import com.example.projectdemo.common.enums.UseStatus;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +16,15 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Iterator;
